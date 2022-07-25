@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Items{% endblock %}
+
+{% block body %}
+    <h1>Liste des Items</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.title }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_item_show', {'id': item.id}) }}">Détails</a>
+                    |
+                    <a class="btn btn-warning" href="{{ path('app_item_edit', {'id': item.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas d'item trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class= "btn btn-warning" href="{{ path('app_item_new') }}">Ajouter</a>
+{% endblock %}

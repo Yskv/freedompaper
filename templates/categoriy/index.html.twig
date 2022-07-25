@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categoriy index{% endblock %}
+
+{% block body %}
+    <h1>Categoriy index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categoriy in categoriys %}
+            <tr>
+                <td>{{ categoriy.id }}</td>
+                <td>{{ categoriy.title }}</td>
+                <td>
+                    <a class= "btn btn-primary" href="{{ path('app_categoriy_show', {'id': categoriy.id}) }}">show</a>
+                    |
+                    <a xlass= "btn btn-primary" href="{{ path('app_categoriy_edit', {'id': categoriy.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class= "btn btn-primary" href="{{ path('app_categoriy_new') }}">Create new</a>
+{% endblock %}
