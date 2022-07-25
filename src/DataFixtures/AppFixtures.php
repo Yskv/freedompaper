@@ -15,9 +15,9 @@ class AppFixtures extends Fixture
         $faker = Factory::create();
         
         for ($c = 1; $c<4; $c++) {
-            $Categoriy = new categoriy;
-            $Categoriy->setTitle($faker->words(3, true));
-            $manager->persist($Categoriy);
+            $categoriy = new Categoriy();
+            $categoriy->setTitle($faker->words(3, true));
+            $manager->persist($categoriy);
 
 
             $rand = mt_rand(24, 35);
@@ -25,7 +25,7 @@ class AppFixtures extends Fixture
         $item = new Item;
         $item->setTitle($faker->name());
         $item->setDescription($faker->text());
-        $item->setCategory($Categoriy);
+        $item->setCategory($categoriy);
         $manager->persist($item);    
         }  
     }
