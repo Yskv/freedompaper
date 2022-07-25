@@ -19,7 +19,7 @@ class Item
     #[ORM\Column(type: 'text', nullable: true)]
     private $description;
 
-    #[ORM\ManyToOne(targetEntity: categoriy::class)]
+    #[ORM\ManyToOne(targetEntity: Categoriy::class)]
     private $Category;
 
     public function getId(): ?int
@@ -51,12 +51,12 @@ class Item
         return $this;
     }
 
-    public function getCategory(): ?categoriy
+    public function getCategory(): ?Categoriy
     {
         return $this->Category;
     }
 
-    public function setCategory(?categoriy $Category): self
+    public function setCategory(?Categoriy $Category): self
     {
         $this->Category = $Category;
 
